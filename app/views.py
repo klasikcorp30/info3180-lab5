@@ -33,7 +33,7 @@ def login():
     if current_user is not None and current_user.is_authenticated:
         return redirect(url_for('home'))
     form = LoginForm()
-    if request.method == "POST" and form.valdiate_on_submit():
+    if request.method == "POST" and form.validate_on_submit():
         # change this to actually validate the entire form submission
         # and not just one field
             # Get the username and password values from the form.
@@ -46,8 +46,8 @@ def login():
             user = UserProfile.query.filter_by(username=username,password=password).first()
             if user is not None:
                 # get user id, load into session
-            login_user(user)
-            flash('Logged in successfully.', 'success')
+                login_user(user)
+                flash('Logged in successfully.', 'success')
             # remember to flash a message to the user
             return redirect(url_for("secure_page"))  # they should be redirected to a secure-page route instead
             flash('Login credentials are incorrect', 'danger')

@@ -1,0 +1,6 @@
+{
+    "python.linting.enabled": true,
+    "python.pythonPath": "C:\\Users\\brown\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+    "postgreSql.hostName": "127.0.0.1",
+    "python.linting.pylintEnabled": false
+}

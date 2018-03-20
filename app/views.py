@@ -13,6 +13,7 @@ from models import UserProfile
 from forms import AddProfile
 from werkzeug.utils import secure_filename
 import os
+import datetime
 
 
 ###
@@ -28,7 +29,7 @@ def home():
 def about():
     return render_template('about.html')
 
-filefolder = './app/static/uploads'
+filefolder = "app/static/uploads/" #url_for('uploads')#../ or ../../
 @app.route('/profile',methods=['GET', 'POST'])
 def get_profile():
     form = AddProfile()
@@ -36,8 +37,9 @@ def get_profile():
         f = form.image.data
         filename = secure_filename(f.filename)
         f.save(os.path.join( filefolder, filename))
+        created_on = datetime.datetime.now().strftime('%A %d %B %Y')
         user = UserProfile(first_name=form.firstname.data,last_name=form.lastname.data, gender = form.gender.data,
-        email = form.email.data, location = form.location.data,biography = form.biography.data)
+        email = form.email.data, location = form.location.data,biography = form.biography.data, image = filename,created_on=created_on)
         db.session.add(user)
         db.session.commit()
         flash('New Profile Successfully Created')
@@ -46,7 +48,8 @@ def get_profile():
 
 @app.route('/profiles')
 def get_profiles():
-    return render_template('profiles.html')
+    users = UserProfile.query.all()
+    return render_template('profiles.html', users=users)
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):

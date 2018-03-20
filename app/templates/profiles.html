@@ -1,4 +1,26 @@
 {% extends "base.html" %}
 
 {% block main %}
+{% for user in users %}
+<div class="card">
+        <div class="row">
+            <div class="col">
+                <img class="resize" src="static/uploads/{{user.image}}" alt="" height="100px" width="100px">
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <hp class="card-title">{{user.first_name}} {{user.last_name}}</p>
+                     <p class="card-text">{{user.gender}}</p>
+                     <p class="card-text">{{user.location}}</p>
+                     
+                </div>
+            </div>
+            <div class="col col2">
+                <a href="#" class="btn btn-success">View Profiles</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
 {% endblock %}
+

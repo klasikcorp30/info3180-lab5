@@ -1,3 +1,13 @@
 body {
     padding-top: 5rem;
 }
+
+.col2{
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.resize{
+    margin-top: 20px;
+    margin-left: 30px;
+}

@@ -51,6 +51,10 @@ def get_profiles():
     users = UserProfile.query.all()
     return render_template('profiles.html', users=users)
 
+@app.route('/user')
+def get_user():
+    return render_template('user.html')
+
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""

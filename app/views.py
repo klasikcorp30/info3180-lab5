@@ -37,9 +37,9 @@ def get_profile():
         f = form.image.data
         filename = secure_filename(f.filename)
         f.save(os.path.join( filefolder, filename))
-        created_on = datetime.datetime.now().strftime('%A %d %B %Y')
+        created = datetime.datetime.now().strftime('%A %d %B %Y')
         user = UserProfile(first_name=form.firstname.data,last_name=form.lastname.data, gender = form.gender.data,
-        email = form.email.data, location = form.location.data,biography = form.biography.data, image = filename,created_on=created_on)
+        email = form.email.data, location = form.location.data,biography = form.biography.data, image = filename,created_on=created)
         db.session.add(user)
         db.session.commit()
         flash('New Profile Successfully Created')

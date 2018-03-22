@@ -6,21 +6,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="static/uploads/Folder.jpg" alt="">
+                <img src="static/uploads/{{user.image}}" alt="">
             </div>
             <div class="col-md-6">
                 <div class="card-body">
-                   <h5 class="card-title">Card title</h5>
-                  <p class="card-text"><i class="icon far fa-envelope"></i>Email</p> 
-                    <p class="card-text"><i class=" icon fas fa-map-marker-alt"></i>Location</p> 
-                    <p class="card-text"><i class="icon fas fa-calendar-alt"></i>Day Joined</p>
+                   <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+                  <p class="card-text"><i class="icon far fa-envelope"></i>{{user.email}}</p> 
+                    <p class="card-text"><i class=" icon fas fa-map-marker-alt"></i>{{user.location}}</p> 
+                    <p class="card-text"><i class="icon fas fa-calendar-alt"></i>{{user.created_on}}</p>
                 </div>
             </div>
             <div class="col-md-12 padding-bio"></div>
                     <br>
                     <h5 class="margin-bio">About Me</h5>
                     <br>
-                    <p class="lead margin-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iure id minima amet fuga voluptates ab, aspernatur autem voluptas rem ut libero ipsum incidunt ratione assumenda facilis a veniam eius?</p> 
+                    <p class="lead margin-bio">{{user.biography}}</p> 
                     <div class="align"></div>  
             </div>
         </div>

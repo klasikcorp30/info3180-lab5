@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 
 {% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class='alert alert-success'>
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 {% for user in users %}
 <div class="card">
         <div class="row">
